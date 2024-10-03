@@ -19,6 +19,16 @@ const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
 )
 Pagination.displayName = "Pagination"
 
+const PaginationIndicator = ({ className, ...props }: React.ComponentProps<"div">) => (
+    <div
+        role="paginationIndicator"
+        aria-label="paginationIndicator"
+        className={cn("mx-auto flex w-full justify-center", className)}
+        {...props}
+    />
+)
+Pagination.displayName = "PaginationIndicator"
+
 const PageSizePicker = React.forwardRef<
     HTMLSelectElement,
     {onChange: (value: string) => void, value: number}
@@ -99,4 +109,5 @@ export {
     PaginationLink,
     PaginationPrevious,
     PaginationNext,
+    PaginationIndicator
 }

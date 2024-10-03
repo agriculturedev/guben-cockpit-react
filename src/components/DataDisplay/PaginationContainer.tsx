@@ -1,6 +1,6 @@
 import {
     PageSizePicker,
-    Pagination,
+    Pagination, PaginationIndicator,
     PaginationNext,
     PaginationPrevious
 } from "@/components/ui/pagination";
@@ -18,13 +18,16 @@ interface Props {
     children?: ReactNode;
 }
 
-export const PaginationContainer = ({nextPage, previousPage, setPageIndex, setPageSize, pageSize, children}: Props) => {
+export const PaginationContainer = ({nextPage, previousPage, setPageIndex, setPageSize, pageSize, children, page, pageCount, total}: Props) => {
     return (
         <>
             <section>
                 {children}
             </section>
             <Pagination>
+                <PaginationIndicator>
+                    <div>Page: {page} / {pageCount}, total: {total}</div>
+                </PaginationIndicator>
                 <PaginationPrevious href="#" onClick={() => previousPage()}/>
                 <PageSizePicker onChange={(value: string) => setPageSize(parseInt(value))} value={pageSize}/>
                 <PaginationNext href="#" onClick={() => nextPage()}/>

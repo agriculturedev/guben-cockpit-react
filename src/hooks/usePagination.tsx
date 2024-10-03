@@ -7,7 +7,7 @@ interface PaginationProps {
     total: number;
 }
 
-const defaultPaginationProps: PaginationProps = {
+export const defaultPaginationProps: PaginationProps = {
     page: 1,
     pageCount: 10,
     pageSize: 25,
@@ -47,6 +47,8 @@ export const usePagination = () => {
         setPageSize,
         nextPage,
         previousPage,
-        setPageIndex
+        setPageIndex,
+        setTotal,
+        setPageCount
     }
 }
