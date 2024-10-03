@@ -1,8 +1,6 @@
 import * as React from 'react'
 import {createFileRoute} from '@tanstack/react-router'
-import {useEffect} from "react";
-import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
-import {fetchGetProjects, useGetProjects} from "@/endpoints/gubenProdComponents";
+import {useGetProjects} from "@/endpoints/gubenProdComponents";
 
 export const Route = createFileRoute('/')({
     component: HomeComponent,
