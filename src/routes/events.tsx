@@ -10,7 +10,5 @@ function EventComponent() {
     const {data: eventsData, error: eventsError, isLoading: eventsIsloading} = useGetEvents({queryParams: {}});
     const {data: eventViewData, error: eventViewErrors, isLoading: eventViewIsLoading} = useGetEventView({queryParams: {}});
 
-    console.log(eventViewData);
-
     return <div className="">Events</div>
 }
