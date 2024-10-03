@@ -1,15 +1,14 @@
 import * as React from 'react'
 import { createFileRoute } from '@tanstack/react-router'
-import { useGetProjects } from '@/endpoints/gubenProdComponents'
+import {useGetHomeView, useGetProjects, useGetProjectView} from '@/endpoints/gubenProdComponents'
 
 export const Route = createFileRoute('/projects')({
   component: ProjectsComponent,
 })
 
 function ProjectsComponent() {
-  const values = useGetProjects({ queryParams: {} })
-
-  console.log(values)
+  const {data, error, isLoading} = useGetProjectView({queryParams: {}});
+  const {} = useGetProjects({ queryParams: {} });
 
   return <div className="">Projects</div>
 }

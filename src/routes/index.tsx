@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {createFileRoute} from '@tanstack/react-router'
-import {useGetProjects} from "@/endpoints/gubenProdComponents";
+import {useGetHomeView, useGetProjects} from "@/endpoints/gubenProdComponents";
 
 export const Route = createFileRoute('/')({
     component: HomeComponent,
@@ -8,10 +8,8 @@ export const Route = createFileRoute('/')({
 
 function HomeComponent() {
 
-    const values = useGetProjects({queryParams: {}});
-
-    console.log(values);
-
+    const {data, error, isLoading} = useGetHomeView({queryParams: {}});
+    
     return (
         <div className="">
             Dashboard
