@@ -1,14 +1,22 @@
 import * as React from 'react'
-import { createFileRoute } from '@tanstack/react-router'
+import {createFileRoute} from '@tanstack/react-router'
+import {useEffect} from "react";
+import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
+import {fetchGetProjects, useGetProjects} from "@/endpoints/gubenProdComponents";
 
 export const Route = createFileRoute('/')({
-  component: HomeComponent,
+    component: HomeComponent,
 })
 
 function HomeComponent() {
-  return (
-    <div className="p-2">
-      <h3>Welcome Home!</h3>
-    </div>
-  )
+
+    const values = useGetProjects({queryParams: {}});
+
+    console.log(values);
+
+    return (
+        <div className="p-2">
+            <h3>Welcome Home!</h3>
+        </div>
+    )
 }
