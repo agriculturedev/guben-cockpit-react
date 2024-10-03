@@ -27,7 +27,7 @@ export const View  = ({children, title, description, isLoading}: Props) => {
                     </div>
                 )}
             </article>
-            <section>
+            <section className={"w-full max-w-[1200px]"}>
                 {children}
             </section>
         </main>

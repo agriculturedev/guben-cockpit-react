@@ -4,6 +4,7 @@ import {TanStackRouterDevtools} from '@tanstack/router-devtools'
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {Navigation} from "@/components/layout/Navigation";
 import "./index.css";
+import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 
 const queryClient = new QueryClient()
 
@@ -17,8 +18,9 @@ function RootComponent() {
             <Navigation/>
             <QueryClientProvider client={queryClient}>
                 <Outlet/>
+                <ReactQueryDevtools initialIsOpen={false} position={"bottom"} />
             </QueryClientProvider>
-            <TanStackRouterDevtools position="bottom-right"/>
+            <TanStackRouterDevtools position="bottom-left" />
         </>
     )
 }

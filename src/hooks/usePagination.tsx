@@ -1,4 +1,4 @@
-import {useCallback, useMemo, useState} from "react";
+import {useCallback, useEffect, useMemo, useState} from "react";
 
 interface PaginationProps {
     page: number;
@@ -7,38 +7,44 @@ interface PaginationProps {
     total: number;
 }
 
-export const usePagination = ({page: defaultPage, pageCount: defaultPageCount, pageSize: defaultPageSize, total: defaultTotal}: PaginationProps) => {
-    const [page, setPage] = useState(defaultPage);
-    const [pageSize, setPageSize] = useState(defaultPageSize);
-    const [total, setTotal] = useState(defaultTotal);
-    const [pageCount, setPageCount] = useState(defaultPageCount);
+const defaultPaginationProps: PaginationProps = {
+    page: 1,
+    pageCount: 10,
+    pageSize: 25,
+    total: 0
+}
 
-    const nextPage = useCallback(() => {
+export const usePagination = () => {
+
+    const [page, setPage] = useState<number>(defaultPaginationProps.page);
+    const [pageSize, setPageSize] = useState<number>(defaultPaginationProps.pageSize);
+    const [total, setTotal] = useState<number>(defaultPaginationProps.total);
+    const [pageCount, setPageCount] = useState<number>(defaultPaginationProps.pageCount);
+
+    const nextPage = () => {
         if (page < pageCount) {
-            return page + 1;
+            return setPage(page + 1);
         }
-    }, [page]);
-    const previousPage = useCallback(() => {
-        if (page > 1) {
-            return page - 1;
-        }
-    }, [page]);
+    };
 
-    const setPageIndex = useCallback((index: number) => {
+    const previousPage = () => {
+        if (page > 0) {
+            return setPage(page - 1);
+        }
+    };
+
+    const setPageIndex = (index: number) => {
         if (index >= 1 && index <= pageCount) {
             setPage(index);
         }
-    }, [pageCount]);
+    };
 
     return {
         page,
-        setPage,
         pageSize,
-        setPageSize,
         total,
-        setTotal,
         pageCount,
-        setPageCount,
+        setPageSize,
         nextPage,
         previousPage,
         setPageIndex

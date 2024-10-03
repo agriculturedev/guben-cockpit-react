@@ -59,6 +59,7 @@
 @layer base {
   * {
     @apply border-border;
+    font-family: Arial,sans-serif;
   }
   body {
     @apply bg-background text-foreground;
@@ -70,6 +71,9 @@
   }
   h2 {
     @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
   }
 }
 

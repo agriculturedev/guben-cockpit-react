@@ -1,43 +1,33 @@
 import {
+    PageSizePicker,
     Pagination,
-    PaginationContent, PaginationEllipsis,
-    PaginationItem,
-    PaginationLink, PaginationNext,
+    PaginationNext,
     PaginationPrevious
 } from "@/components/ui/pagination";
-import {usePagination} from "@/hooks/usePagination";
+import {ReactNode} from "@tanstack/react-router";
 
 interface Props {
+    nextPage: () => void;
+    previousPage: () => void;
+    setPageIndex: (index: number) => void;
+    setPageSize: (size: number) => void;
     page: number;
     pageCount: number;
     pageSize: number;
     total: number;
+    children?: ReactNode;
 }
 
-export const PaginationContainer = ({page, pageCount, pageSize, total}: Props) => {
-
-    const {previousPage, nextPage, setPageIndex} = usePagination({page, pageCount, pageSize, total});
-
+export const PaginationContainer = ({nextPage, previousPage, setPageIndex, setPageSize, pageSize, children}: Props) => {
     return (
         <>
             <section>
-                Test
+                {children}
             </section>
             <Pagination>
-                <PaginationContent>
-                    <PaginationItem>
-                        <PaginationPrevious href="#" onClick={() => previousPage()}/>
-                    </PaginationItem>
-                    <PaginationItem>
-                        <PaginationLink href="#" onClick={() => setPageIndex(1)}>1</PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                        <PaginationEllipsis/>
-                    </PaginationItem>
-                    <PaginationItem>
-                        <PaginationNext href="#" onClick={() => nextPage()}/>
-                    </PaginationItem>
-                </PaginationContent>
+                <PaginationPrevious href="#" onClick={() => previousPage()}/>
+                <PageSizePicker onChange={(value: string) => setPageSize(parseInt(value))} value={pageSize}/>
+                <PaginationNext href="#" onClick={() => nextPage()}/>
             </Pagination>
         </>
     );
