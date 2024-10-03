@@ -7,8 +7,10 @@ export const Route = createFileRoute('/events')({
 })
 
 function EventComponent() {
-    const {data: eventsData, error: eventsError, isLoading: eventsIsloading} = useGetEvents({queryParams: {}});
+    const {data: eventsData, error: eventsError, isLoading: eventsIsloading} = useGetEvents({queryParams: {}}, {queryKeyHashFn: () => 'events'});
     const {data: eventViewData, error: eventViewErrors, isLoading: eventViewIsLoading} = useGetEventView({queryParams: {}});
+
+    console.log(eventsData);
 
     return <div className="">Events</div>
 }
