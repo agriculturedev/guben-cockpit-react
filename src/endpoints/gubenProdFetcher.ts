@@ -1,6 +1,6 @@
 import { GubenProdContext } from "./gubenProdContext";
 
-const baseUrl = "http://localhost:1337/api";
+const baseUrl = "https://admin.guben.elie.de/api";
 
 export type ErrorWrapper<TError> =
   | TError
