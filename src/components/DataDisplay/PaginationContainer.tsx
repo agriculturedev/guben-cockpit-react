@@ -1,6 +1,6 @@
 import {
-    PageSizePicker,
-    Pagination, PaginationIndicator,
+    PageIndicator, PageSizePicker,
+    Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink,
     PaginationNext,
     PaginationPrevious
 } from "@/components/ui/pagination";
@@ -24,14 +24,20 @@ export const PaginationContainer = ({nextPage, previousPage, setPageIndex, setPa
             <section>
                 {children}
             </section>
+
             <Pagination>
-                <PaginationIndicator>
-                    <div>Page: {page} / {pageCount}, total: {total}</div>
-                </PaginationIndicator>
-                <PaginationPrevious href="#" onClick={() => previousPage()}/>
-                <PageSizePicker onChange={(value: string) => setPageSize(parseInt(value))} value={pageSize}/>
-                <PaginationNext href="#" onClick={() => nextPage()}/>
+                <PageIndicator>{`Page: ${page} of ${pageCount}, total: ${total}`}</PageIndicator>
+                <PageSizePicker onChange={(value: string) => setPageSize(parseInt(value))} />
+                <PaginationContent>
+                    <PaginationItem>
+                        <PaginationPrevious onClick={() => previousPage()} />
+                    </PaginationItem>
+                    <PaginationItem>
+                        <PaginationNext onClick={() => nextPage()} />
+                    </PaginationItem>
+                </PaginationContent>
             </Pagination>
+
         </>
     );
 }

@@ -17,8 +17,8 @@ function EventComponent() {
     const {data: eventViewData, error: eventViewErrors, isLoading: eventViewIsLoading} = useGetEventView({queryParams: {}});
 
     useEffect(() => {
-        setPageSize(eventsData?.meta?.pagination?.pageSize ?? defaultPaginationProps.pageSize);
-        setPageIndex(eventsData?.meta?.pagination?.page ?? defaultPaginationProps.page);
+        // setPageSize(eventsData?.meta?.pagination?.pageSize ?? defaultPaginationProps.pageSize);
+        // setPageIndex(eventsData?.meta?.pagination?.page ?? defaultPaginationProps.page);
         setTotal(eventsData?.meta?.pagination?.total ?? defaultPaginationProps.total);
         setPageCount(eventsData?.meta?.pagination?.pageCount ?? defaultPaginationProps.pageCount);
     }, [eventsData]);

@@ -18,9 +18,9 @@ function RootComponent() {
             <Navigation/>
             <QueryClientProvider client={queryClient}>
                 <Outlet/>
-                <ReactQueryDevtools initialIsOpen={false} position={"bottom"} />
+                {/*<ReactQueryDevtools initialIsOpen={false} position={"bottom"} />*/}
             </QueryClientProvider>
-            <TanStackRouterDevtools position="bottom-left" />
+            {/*<TanStackRouterDevtools position="top-left" />*/}
         </>
     )
 }
