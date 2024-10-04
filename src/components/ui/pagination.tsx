@@ -25,7 +25,7 @@ const PaginationContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ul
     ref={ref}
-    className={cn("flex flex-row items-center rounded shadow", className)}
+    className={cn("flex flex-row items-center rounded-md shadow border", className)}
     {...props}
   />
 ))
@@ -122,7 +122,7 @@ const PageSizePicker = ({
     ...props
     }: { className?: string, onChange: (value: string) => void}) => (
       <Select onValueChange={(value: string) => props.onChange(value)}>
-        <SelectTrigger className="w-[180px]">
+        <SelectTrigger className="w-[180px] h-full">
           <SelectValue placeholder="Page size" />
         </SelectTrigger>
         <SelectContent>

@@ -8,11 +8,6 @@ interface EventsListProps {
 
 export const EventsList = ({events}: EventsListProps) => {
     return (
-        <div className={"grid grid-cols-3 gap-2"}>{events && events.map((event, index) => <EventCard event={event} />)}</div>
+        <div className={"grid grid-cols-3 gap-2"}>{events && events.map((event, index) => <EventCard key={index} event={event} />)}</div>
     )
 }
-
-// display: grid;
-// grid-template-columns: repeat(3, 1fr);
-// gap: 10px;
-// padding-top: 0.5rem;
