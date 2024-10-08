@@ -1,7 +1,5 @@
-import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
+import { Link } from '@tanstack/react-router'
 import {HomeIcon, ListBulletIcon, MapIcon, Squares2X2Icon} from "@heroicons/react/24/outline";
-
-
 
 export const Navigation = () => {
     const linkStyle = "h-full p-3 flex items-center justify-center w-auto rounded-xl group hover:bg-[#cd1421]";
