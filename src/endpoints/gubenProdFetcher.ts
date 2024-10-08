@@ -1,6 +1,6 @@
 import { GubenProdContext } from "./gubenProdContext";
 
-const baseUrl = "https://admin.guben.elie.de/api";
+const baseUrl = import.meta.env.VITE_STRAPI_URL;
 
 export type ErrorWrapper<TError> =
   | TError
