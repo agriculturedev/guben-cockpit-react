@@ -2,6 +2,7 @@ import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
 import {HomeIcon, ListBulletIcon, MapIcon, Squares2X2Icon} from "@heroicons/react/24/outline";
 
 
+
 export const Navigation = () => {
     return (
         <div className="w-full h-[80px] bg-white sticky top-0 z-10 shadow p-0 m-0 rounded-b flex flex-row items-center justify-between">

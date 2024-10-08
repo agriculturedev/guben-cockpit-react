@@ -29,10 +29,13 @@ function HomeComponent() {
             })
     } as TabItem});
 
+    console.log(tabItems);
+
     return (
         <>
             <View title={homeViewData?.data?.attributes?.title} description={homeViewData?.data?.attributes?.description} isLoading={homeViewIsLoading}>
-                <DashboardTabs tabs={tabItems}/>
+
+                {tabItems && <DashboardTabs tabs={tabItems}/>}
             </View>
         </>
     );

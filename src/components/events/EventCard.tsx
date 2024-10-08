@@ -26,6 +26,5 @@ export const EventCard = ({event}: EventCardProps) => {
                 </CardFooter>
             </Card>
         </>
-
     )
 }
