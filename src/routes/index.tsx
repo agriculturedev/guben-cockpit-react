@@ -1,9 +1,7 @@
 import * as React from 'react'
 import {createFileRoute} from '@tanstack/react-router'
-import {useGetHomeView, useGetProjects, useGetProjectView} from "@/endpoints/gubenProdComponents";
+import {useGetHomeView} from "@/endpoints/gubenProdComponents";
 import {View} from "@/components/layout/View";
-import {PaginationContainer} from "@/components/DataDisplay/PaginationContainer";
-import {usePagination} from "@/hooks/usePagination";
 import {DashboardTabs, TabItem} from "@/components/home/DashboardTabs";
 
 export const Route = createFileRoute('/')({
