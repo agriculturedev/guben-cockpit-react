@@ -14,13 +14,13 @@ export const Route = createRootRoute({
 
 function RootComponent() {
     return (
-        <>
+        <div className={"min-h-dvh bg-secondary"}>
             <Navigation/>
             <QueryClientProvider client={queryClient}>
                 <Outlet/>
                 <ReactQueryDevtools initialIsOpen={false} position={"bottom"} />
             </QueryClientProvider>
             <TanStackRouterDevtools position="bottom-left" />
-        </>
+        </div>
     )
 }

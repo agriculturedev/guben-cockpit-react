@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 :root {
-    --accent-color: #cd1421;
+    --primary: #cd1421;
+    --secondary: #e9ecef;
     --font-size-base: 16px;
     --font-size-h1: 2rem;
 }
