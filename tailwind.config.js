@@ -2,8 +2,8 @@
 export default {
     darkMode: ['class'],
     content: [
-    './pages/**/*.{html,js}',
-    './components/**/*.{html,js}',
+    './src/pages/**/*.{html,js,jsx,ts,tsx}',
+    './src/components/**/*.{html,js,jsx,ts,tsx}'
   ],
   theme: {
   	extend: {
@@ -36,7 +36,7 @@ export default {
   				foreground: 'hsl(var(--muted-foreground))'
   			},
   			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
+  				DEFAULT: 'var(--accent-color)',
   				foreground: 'hsl(var(--accent-foreground))'
   			},
   			destructive: {
@@ -53,7 +53,10 @@ export default {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
-  		}
+  		},
+		  fontSize: {
+			  h1: 'var(--font-size-h1)', // Add this line
+		  }
   	}
   },
   plugins: [require("tailwindcss-animate")],

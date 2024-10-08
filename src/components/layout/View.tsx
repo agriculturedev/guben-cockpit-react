@@ -11,12 +11,12 @@ interface Props {
 export const View  = ({children, title, description, isLoading}: Props) => {
     return (
         <main className={"w-full flex flex-col items-center"}>
-            <article className={"w-full max-w-[1200px]"}>
+            <article className={"w-full max-w-[1200px] pt-4 pb-4"}>
                 {!isLoading && (
-                    <>
-                        <h1>{title}</h1>
+                    <div className={"flex gap-3 flex-col"}>
+                        <h1 className={"text-accent text-h1"}>{title}</h1>
                         <div>{description}</div>
-                    </>
+                    </div>
                 )}
                 {isLoading && (
                     <div className={"flex flex-col gap-2"}>

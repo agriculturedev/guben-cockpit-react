@@ -15,7 +15,7 @@ function HomeComponent() {
 
     console.log(homeViewData);
 
-    const tabItems: TabItem[] = homeViewData?.data?.attributes?.tabs?.data?.map((tab) => {
+    const tabItems: TabItem[] | undefined = homeViewData?.data?.attributes?.tabs?.data?.map((tab) => {
         return {
             value: tab?.attributes?.title,
             description: tab?.attributes?.title,
@@ -27,7 +27,8 @@ function HomeComponent() {
                     </div>
                 )
             })
-    } as TabItem});
+        } as TabItem
+    });
 
     console.log(tabItems);
 
