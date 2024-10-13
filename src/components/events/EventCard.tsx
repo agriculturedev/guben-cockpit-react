@@ -19,11 +19,19 @@ export const EventCard = ({event}: EventCardProps) => {
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <p>Card Content</p>
+                    <div>
+                        <div>Start date</div>
+                        <div>{event.attributes?.startDate}</div>
+                    </div>
+                    <div>
+                        <div>End date</div>
+                        <div>{event.attributes?.endDate}</div>
+                    </div>
+                    <div>
+                        <div>Kategorie</div>
+                        <div>{event.attributes?.categories?.data?.map(c => c.attributes?.Name).join(", ")}</div>
+                    </div>
                 </CardContent>
-                <CardFooter>
-                    <p>Card Footer</p>
-                </CardFooter>
             </Card>
         </>
     )
