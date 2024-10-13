@@ -1,5 +1,5 @@
-import {Event, EventListResponseDataItem} from "@/endpoints/gubenProdSchemas";
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
+import { EventListResponseDataItem } from "@/endpoints/gubenProdSchemas";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface EventCardProps {
@@ -7,6 +7,10 @@ interface EventCardProps {
 }
 
 export const EventCard = ({event}: EventCardProps) => {
+
+    const startDate = event.attributes?.startDate ? new Date(event.attributes?.startDate) : null
+    const endDate = event.attributes?.endDate ? new Date(event.attributes?.endDate) : null
+
     return (
         <>
             <Card className={""}>
@@ -21,11 +25,11 @@ export const EventCard = ({event}: EventCardProps) => {
                 <CardContent>
                     <div>
                         <div>Start date</div>
-                        <div>{event.attributes?.startDate}</div>
+                        <div>{startDate?.formatDateTime(false)}</div>
                     </div>
                     <div>
                         <div>End date</div>
-                        <div>{event.attributes?.endDate}</div>
+                        <div>{endDate?.formatDateTime(false)}</div>
                     </div>
                     <div>
                         <div>Kategorie</div>
