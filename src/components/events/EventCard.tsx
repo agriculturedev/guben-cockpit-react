@@ -27,7 +27,10 @@ export const EventCard = ({event}: EventCardProps) => {
                         <div>End date</div>
                         <div>{event.attributes?.endDate}</div>
                     </div>
-
+                    <div>
+                        <div>Kategorie</div>
+                        <div>{event.attributes?.categories?.data?.map(c => c.attributes?.Name).join(", ")}</div>
+                    </div>
                 </CardContent>
             </Card>
         </>

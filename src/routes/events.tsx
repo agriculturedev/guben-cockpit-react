@@ -6,11 +6,6 @@ import {View} from "@/components/layout/View";
 import {PaginationContainer} from "@/components/DataDisplay/PaginationContainer";
 import {defaultPaginationProps, usePagination} from "@/hooks/usePagination";
 import {EventsList} from "@/components/events/EventsList";
-import {useDateFilter} from "@/hooks/useDateFilter";
-import {DateRangeFilter} from "@/components/filters/DateRangeFilter";
-import {TextFilter} from "@/components/filters/TextFilter";
-import {useTextFilter} from "@/hooks/useTextFilter";
-import {useEventFilters} from "@/hooks/useEventFilters";
 import {EventFilterContainer} from "@/components/events/EventFilterContainer";
 
 export const Route = createFileRoute('/events')({
@@ -73,7 +68,7 @@ function EventComponent() {
                 <PaginationContainer nextPage={nextPage} previousPage={previousPage} setPageIndex={setPageIndex}
                                      setPageSize={setPageSize} total={total} pageCount={pageCount} pageSize={pageSize}
                                      page={page}>
-                    <EventFilterContainer filters={filters} setFilters={setFilters} />
+                    <EventFilterContainer filters={filters} setFilters={setFilters}/>
                     <EventsList events={eventsData?.data}/>
                 </PaginationContainer>
             </View>
