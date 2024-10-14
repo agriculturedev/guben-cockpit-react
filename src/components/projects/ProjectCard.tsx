@@ -1,5 +1,5 @@
 import {ProjectListResponseDataItem} from "@/endpoints/gubenProdSchemas";
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface ProjectCardProps {
@@ -9,8 +9,8 @@ interface ProjectCardProps {
 export const ProjectCard = ({project}: ProjectCardProps) => {
     return (
         <>
-            <Card className={""}>
-                <CardHeader>
+            <Card>
+                <CardHeader> {/* TODO@JOREN: add an optional card Image as header which does not have padding around it, or minimal padding*/}
                     <CardTitle>{project.attributes?.title}</CardTitle>
                     <CardDescription>
                         <ScrollArea className="h-24 rounded">
@@ -18,14 +18,7 @@ export const ProjectCard = ({project}: ProjectCardProps) => {
                         </ScrollArea>
                     </CardDescription>
                 </CardHeader>
-                <CardContent>
-                    <p>Card Content</p>
-                </CardContent>
-                <CardFooter>
-                    <p>Card Footer</p>
-                </CardFooter>
             </Card>
         </>
-
     )
 }
