@@ -1,22 +1,29 @@
 import {ProjectListResponseDataItem} from "@/endpoints/gubenProdSchemas";
-import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardDescription, CardHeader, CardHeaderImage, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { isNullOrUndefinedOrWhiteSpace } from "@/lib/stringUtils";
 
 interface ProjectCardProps {
     project: ProjectListResponseDataItem;
 }
 
 export const ProjectCard = ({project}: ProjectCardProps) => {
+    const hasImage = !isNullOrUndefinedOrWhiteSpace(project.attributes?.imageUrl);
+    const hasDescription = !isNullOrUndefinedOrWhiteSpace(project.attributes?.description);
+
     return (
         <>
             <Card>
-                <CardHeader> {/* TODO@JOREN: add an optional card Image as header which does not have padding around it, or minimal padding*/}
+                {hasImage && <CardHeaderImage src={project.attributes?.imageUrl} alt={project.attributes?.imageCaption}/>}
+                <CardHeader>
                     <CardTitle>{project.attributes?.title}</CardTitle>
-                    <CardDescription>
+                    {hasDescription &&
+                      <CardDescription>
                         <ScrollArea className="h-24 rounded">
                             {project.attributes?.description}
                         </ScrollArea>
-                    </CardDescription>
+                      </CardDescription>
+                    }
                 </CardHeader>
             </Card>
         </>
