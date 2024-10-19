@@ -34,7 +34,7 @@ function EventComponent() {
     const queryParams = useMemo(() => {
         const query: {
             [key: string]: string | number;
-        } = {"pagination[pageSize]": pageSize, "pagination[page]": page};
+        } = {"pagination[pageSize]": pageSize, "pagination[page]": page, populate: "categories"};
 
         filters.forEach(filter => {
             query[filter[0]] = filter[1];
