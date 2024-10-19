@@ -9,7 +9,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "rounded-xl border bg-card text-card-foreground shadow",
+      "rounded-lg border bg-card text-card-foreground shadow",
       className
     )}
     {...props}
@@ -28,6 +28,20 @@ const CardHeader = React.forwardRef<
   />
 ))
 CardHeader.displayName = "CardHeader"
+
+const CardHeaderImage = React.forwardRef<
+  HTMLImageElement,
+  React.ImgHTMLAttributes<HTMLImageElement>
+>(({ className, alt, src, ...props }, ref) => (
+  <img
+    ref={ref}
+    alt={alt}
+    src={src}
+    className={cn("rounded-t-lg", className)}
+    {...props}
+  />
+))
+CardHeaderImage.displayName = "CardHeaderImage"
 
 const CardTitle = React.forwardRef<
   HTMLParagraphElement,
@@ -73,4 +87,4 @@ const CardFooter = React.forwardRef<
 ))
 CardFooter.displayName = "CardFooter"
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, CardHeaderImage }

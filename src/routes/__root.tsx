@@ -15,7 +15,7 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <div className={"min-h-dvh bg-secondary flex flex-col"}>
+    <div className={"min-h-dvh bg-background flex flex-col"}>
       <Navigation/>
       <QueryClientProvider client={queryClient}>
         <Outlet/>

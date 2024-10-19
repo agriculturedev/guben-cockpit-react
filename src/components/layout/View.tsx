@@ -14,7 +14,7 @@ export const View  = ({children, title, description, isLoading}: Props) => {
             <article className={"w-full max-w-[1200px] pt-5 pb-5"}>
                 {!isLoading && (
                     <div className={"flex gap-3 flex-col"}>
-                        <h1 className={"text-primary text-h1 font-bold"}>{title}</h1>
+                      <h1 className={"text-gubenAccent text-h1 font-bold"}>{title}</h1>
                         <div>{description}</div>
                     </div>
                 )}

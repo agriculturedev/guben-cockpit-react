@@ -1,31 +1,31 @@
 import {ProjectListResponseDataItem} from "@/endpoints/gubenProdSchemas";
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
+import { Card, CardDescription, CardHeader, CardHeaderImage, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { isNullOrUndefinedOrWhiteSpace } from "@/lib/stringUtils";
 
 interface ProjectCardProps {
     project: ProjectListResponseDataItem;
 }
 
 export const ProjectCard = ({project}: ProjectCardProps) => {
+    const hasImage = !isNullOrUndefinedOrWhiteSpace(project.attributes?.imageUrl);
+    const hasDescription = !isNullOrUndefinedOrWhiteSpace(project.attributes?.description);
+
     return (
         <>
-            <Card className={""}>
+            <Card>
+                {hasImage && <CardHeaderImage src={project.attributes?.imageUrl} alt={project.attributes?.imageCaption}/>}
                 <CardHeader>
                     <CardTitle>{project.attributes?.title}</CardTitle>
-                    <CardDescription>
+                    {hasDescription &&
+                      <CardDescription>
                         <ScrollArea className="h-24 rounded">
                             {project.attributes?.description}
                         </ScrollArea>
-                    </CardDescription>
+                      </CardDescription>
+                    }
                 </CardHeader>
-                <CardContent>
-                    <p>Card Content</p>
-                </CardContent>
-                <CardFooter>
-                    <p>Card Footer</p>
-                </CardFooter>
             </Card>
         </>
-
     )
 }
