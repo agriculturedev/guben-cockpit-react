@@ -1,6 +1,7 @@
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import {ReactNode} from "@tanstack/react-router";
 import {MapComponent} from "@/components/home/MapComponent";
+import {useState} from "react";
 
 export interface TabItem {
     value: string;
@@ -14,8 +15,14 @@ interface DashboardTabsProps {
 }
 
 export const DashboardTabs = ({tabs}: DashboardTabsProps) => {
+    const [tab, setTab] = useState(tabs[0].value);
+
+    const onTabChange = (value: string) => {
+        setTab(value);
+    }
+
     return (
-        <Tabs defaultValue="account" className="w-full flex flex-col gap-2 h-full">
+        <Tabs defaultValue="account" className="w-full flex flex-col gap-2 h-full" value={tab} onValueChange={onTabChange}>
             <TabsList className={"flex flex-row justify-evenly font-bold"}>
                 {tabs.map((tab, index) => <TabsTrigger key={index} value={tab.value}>{tab.description}</TabsTrigger>)}
             </TabsList>

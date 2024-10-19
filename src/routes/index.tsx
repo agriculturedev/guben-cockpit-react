@@ -27,7 +27,6 @@ function HomeComponent() {
   return (
     <>
       <View title={homeViewData?.data?.attributes?.title} description={homeViewData?.data?.attributes?.description} isLoading={homeViewIsLoading}>
-
         {tabItems && <DashboardTabs tabs={tabItems}/>}
       </View>
     </>

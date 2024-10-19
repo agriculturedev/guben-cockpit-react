@@ -9,7 +9,7 @@ interface ProjectsListProps {
 
 export const ProjectsList = ({projects}: ProjectsListProps) => {
     return (
-      <div className={"grid grid-cols-3 gap-2"}>
+      <div className={"columns-3"}>
           {projects &&
             projects.map((project, index) =>
               <ProjectCardWithDialog key={index} project={project}/>)

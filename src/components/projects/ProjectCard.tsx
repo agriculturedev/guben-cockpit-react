@@ -13,7 +13,7 @@ export const ProjectCard = ({project}: ProjectCardProps) => {
 
     return (
         <>
-            <Card>
+            <Card className={"mb-2"}>
                 {hasImage && <CardHeaderImage src={project.attributes?.imageUrl} alt={project.attributes?.imageCaption}/>}
                 <CardHeader>
                     <CardTitle>{project.attributes?.title}</CardTitle>
