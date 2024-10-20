@@ -30,6 +30,8 @@
         --radius: 0.5rem;
         --guben-accent: #cd1421;
         --guben-accent-foreground: #ffffff;
+
+        --font-size-h1: 1.5em;
     }
 
     /*.dark {*/
