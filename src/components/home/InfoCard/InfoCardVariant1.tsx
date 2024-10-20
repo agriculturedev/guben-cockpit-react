@@ -6,9 +6,8 @@ interface Props {
 }
 
 export const InfoCardVariant1 = ({card}: Props) => {
-    console.log(card);
     return (
-      <div className="flex flex-col bg-white p-4 gap-1 rounded-lg shadow-md">
+      <div className="flex flex-col bg-white p-4 gap-1 rounded-lg shadow-lg mb-4 break-inside-avoid">
             <h1 className="text-xl font-bold text-[#cd1421] text-center">{card.title}</h1>
             <p className="text-gray-500">{card.description}</p>
 

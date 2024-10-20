@@ -34,7 +34,7 @@ export const DashboardTabs = ({tabs}: DashboardTabsProps) => {
                     {index === 2 &&  <MapComponent src={"https://guben.elie.de/?Map/layerIds=02886f50-7bd5-46d3-a763-974213df3431,111222367,111222362,111222363,111222361&visibility=true,true,true,true,true&transparency=0,0,0,0,0"} />}
                     {index === 3 &&  <MapComponent src={"https://guben.elie.de/?Map/layerIds=02886f50-7bd5-46d3-a763-974213df3431,111222355,111222350,111222341&visibility=true,true,true,true&transparency=0,0,0,0"} />}
                     {index === 4 &&  <MapComponent src={"https://guben.elie.de/?Map/layerIds=02886f50-7bd5-46d3-a763-974213df3431,211222351,111222351,111222352,111222354,111222354&visibility=true,true,true,true,true,true&transparency=0,0,0,0,0,0"} />}
-                    <div className={"flex-1 grid grid-cols-2 gap-2 overflow-scroll grid-"}>
+                    <div className={"flex-1 h-full columns-2 px-4 pt-2"}>
                         {tabContent.content}
                     </div>
                 </div>
