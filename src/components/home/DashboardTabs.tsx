@@ -22,12 +22,12 @@ export const DashboardTabs = ({tabs}: DashboardTabsProps) => {
     }
 
     return (
-        <Tabs defaultValue="account" className="w-full flex flex-col gap-2 h-full" value={tab} onValueChange={onTabChange}>
-            <TabsList className={"flex flex-row justify-evenly font-bold"}>
+        <Tabs defaultValue="account" className="w-full flex flex-col h-full" value={tab} onValueChange={onTabChange}>
+            <TabsList className={"flex flex-row font-bold pl-2"}>
                 {tabs.map((tab, index) => <TabsTrigger key={index} value={tab.value}>{tab.description}</TabsTrigger>)}
             </TabsList>
 
-            {tabs.map((tabContent, index) => <TabsContent key={index} value={tabContent.value} className={"h-full rounded bg-white p-1 flex-row gap-1 relative shadow"}>
+            {tabs.map((tabContent, index) => <TabsContent key={index} value={tabContent.value} className={"h-full rounded bg-white p-1 flex-row gap-1 relative shadow border border-gray-300"}>
                 <div className={"flex min-h-[70vh] h-full"}>
                     {index === 0 &&  <MapComponent src={"https://guben.elie.de/?Map/layerIds=02886f50-7bd5-46d3-a763-974213df3431,111222356,111222357,111222358,111222359,111222360,111222364,111222348&visibility=true,true,true,true,true,true,true,true&transparency=0,0,0,0,0,0,0,0"} />}
                     {index === 1 &&  <MapComponent src={"https://guben.elie.de/?Map/layerIds=02886f50-7bd5-46d3-a763-974213df3431,111222349,111222366,111222365,111222368&visibility=true,true,true,true,true&transparency=0,0,0,0,0"} />}
