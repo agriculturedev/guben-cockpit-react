@@ -1,5 +1,6 @@
 import {ReactNode} from "@tanstack/react-router";
 import {Skeleton} from "@/components/ui/skeleton";
+import Markdown from "react-markdown";
 
 interface Props {
     title?: string;
@@ -15,7 +16,7 @@ export const View  = ({children, title, description, isLoading}: Props) => {
                 {!isLoading && (
                     <div className={"flex gap-3 flex-col"}>
                       <h1 className={"text-gubenAccent text-h1 font-bold"}>{title}</h1>
-                        <div>{description}</div>
+                        <Markdown>{description}</Markdown>
                     </div>
                 )}
                 {isLoading && (
