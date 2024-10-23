@@ -31,10 +31,10 @@ export const EventCard = ({event}: EventCardProps) => {
           <EventDate startDate={startDate} endDate={endDate}/>
 
           {hasCategories &&
-              <div className={"grid grid-cols-3 gap-2"}>
-                <div className={"col-span-1 flex justify-end"}>Kategorie</div>
-                <div className={"col-span-2"}>{categories?.map(c => c.attributes?.Name).join(", ")}</div>
-              </div>
+	          <div className={"grid grid-cols-3 gap-2"}>
+		          <div className={"col-span-1 flex justify-end"}>Kategorie</div>
+		          <div className={"col-span-2"}>{categories?.map(c => c.attributes?.Name).join(", ")}</div>
+	          </div>
           }
 
           {filteredLinks.length > 0 &&
