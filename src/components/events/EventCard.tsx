@@ -13,7 +13,6 @@ export const EventCard = ({event}: EventCardProps) => {
   const categories = event.attributes?.categories?.data ?? []
   const hasCategories = categories?.length > 0;
   const links = event.attributes?.urls ?? [];
-  console.log(links);
 
   return (
     <>
