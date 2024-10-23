@@ -8,12 +8,13 @@ interface EventCardProps {
 }
 
 export const EventCard = ({event}: EventCardProps) => {
-
   const startDate = event.attributes?.startDate ? new Date(event.attributes?.startDate) : null
   const endDate = event.attributes?.endDate ? new Date(event.attributes?.endDate) : null
   const categories = event.attributes?.categories?.data ?? []
   const hasCategories = categories?.length > 0;
+
   const links = event.attributes?.urls ?? [];
+  const filteredLinks = links.filter((link: any) => link.link !== '' && link.description !== '')
 
   return (
     <>
@@ -36,12 +37,18 @@ export const EventCard = ({event}: EventCardProps) => {
               </div>
           }
 
-          {links.length > 0 &&
-              <div className={"grid grid-cols-3 gap-2"}>
-                <div className={"col-span-1 flex justify-end"}>Links</div>
-                <div
-                    className={"col-span-2"}>{links.filter((link: any) => link.link !== '' && link.description !== '').map((link: any, index: number) => <a className={"text-blue-700 underline"} href={link.link}>{index !== 0 && ", "}{link.description}</a>
-                )}</div>
+          {filteredLinks.length > 0 &&
+		        <div className={"grid grid-cols-3 gap-2"}>
+			        <div className={"col-span-1 flex justify-end"}>Links</div>
+			        <div
+				        className={"col-span-2"}>{
+                filteredLinks.map((link: any, index: number) =>
+                  <a className={"text-blue-700 underline"} href={link.link}>
+                    {index !== 0 && ", "}{link.description}
+                  </a>
+                )
+              }
+			        </div>
             </div>
           }
 
