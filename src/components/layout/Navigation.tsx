@@ -7,10 +7,11 @@ export const Navigation = () => {
 
     return (
         <div className="w-full h-[80px] bg-white sticky top-0 z-10 shadow p-0 m-0 rounded-b flex flex-row items-center justify-between">
-            <div id="logo" className="flex-1 flex justify-start items-start h-full pl-5">
+            <div id="logo" className="flex-1 flex justify-start items-center h-full pl-5">
                 <Link to="/" className="h-full flex justify-center items-center">
                     <img src="/guben-logo.jpg" alt="logo" className={"h-[70%]"}/>
                 </Link>
+                <img src="/smart-city-guben-logo.svg" alt="logo" className={"h-[70%]"}/>
             </div>
             <ul className="flex-1 flex flex-row h-full items-center justify-center self-center">
                 <li>
