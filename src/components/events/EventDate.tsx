@@ -4,11 +4,11 @@ interface EventDateProps {
 }
 
 export const EventDate = ({ startDate, endDate }: EventDateProps) => {
-  var validDate: string | null;
+  var formattedDateString: string | null;
   if (startDate == null || endDate == null) {
-    validDate = startDate?.formatDateTime(false) ?? endDate?.formatDateTime(false) ?? null;
+    formattedDateString = startDate?.formatDateTime(false) ?? endDate?.formatDateTime(false) ?? null;
   } else if (startDate.differenceInDays(endDate) === 0) {
-    validDate = `${startDate.formatDateTime(false)} - ${endDate.formatTime(false)}`;
+    formattedDateString = `${startDate.formatDateTime(false)} - ${endDate.formatTime(false)}`;
   } else {
     return (
       <>
@@ -23,10 +23,10 @@ export const EventDate = ({ startDate, endDate }: EventDateProps) => {
       </>);
   }
 
-  return validDate != null
+  return formattedDateString != null
     ? (<div className={"grid grid-cols-3 gap-2"}>
       <div className={"col-span-1 flex justify-end"}>Datum</div>
-      <div className={"col-span-2"}>{validDate}</div>
+      <div className={"col-span-2"}>{formattedDateString}</div>
     </div>)
     : null;
 }
