@@ -102,14 +102,14 @@ Date.prototype.toIsoTimeOnly = function (): string {
 };
 
 Date.prototype.formatDate = function (): string {
-  return format(this, "dd/MM/yyyy");
+  return format(this, "dd.MM.yyyy");
 };
 
 Date.prototype.formatDateTime = function (includeSeconds: boolean): string {
   if (includeSeconds) {
-    return format(this, "dd/MM/yyyy HH:mm:ss");
+    return format(this, "dd.MM.yyyy HH:mm:ss");
   }
-  return format(this, "dd/MM/yyyy HH:mm");
+  return format(this, "dd.MM.yyyy HH:mm");
 };
 
 Date.prototype.formatTime = function (includeSeconds: boolean): string {
