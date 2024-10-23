@@ -1,6 +1,7 @@
 import { EventListResponseDataItem } from "@/endpoints/gubenProdSchemas";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { EventDate } from "@/components/events/EventDate";
 
 interface EventCardProps {
   event: EventListResponseDataItem;
@@ -13,7 +14,6 @@ export const EventCard = ({event}: EventCardProps) => {
   const categories = event.attributes?.categories?.data ?? []
   const hasCategories = categories?.length > 0;
   const links = event.attributes?.urls ?? [];
-  console.log(links);
 
   return (
     <>
@@ -27,14 +27,7 @@ export const EventCard = ({event}: EventCardProps) => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className={"grid grid-cols-3 gap-2"}>
-            <div className={"col-span-1 flex justify-end"}>Start date</div>
-            <div className={"col-span-2"}>{startDate?.formatDateTime(false)}</div>
-          </div>
-          <div className={"grid grid-cols-3 gap-2"}>
-            <div className={"col-span-1 flex justify-end"}>End date</div>
-            <div className={"col-span-2"}>{endDate?.formatDateTime(false)}</div>
-          </div>
+          <EventDate startDate={startDate} endDate={endDate}/>
 
           {hasCategories &&
               <div className={"grid grid-cols-3 gap-2"}>
@@ -57,3 +50,4 @@ export const EventCard = ({event}: EventCardProps) => {
     </>
   )
 }
+
