@@ -16,11 +16,13 @@ export const EventCard = ({event}: EventCardProps) => {
   const links = event.attributes?.urls ?? [];
   const filteredLinks = links.filter((link: any) => link.link !== '' && link.description !== '')
 
+  const locationCity = event.attributes?.locationCity;
+
   return (
     <>
       <Card>
         <CardHeader>
-          <CardTitle className={"text-[var(--guben-accent)]"}>{event.attributes?.title}</CardTitle>
+          <CardTitle className={"text-gubenAccent"}>{event.attributes?.title}</CardTitle>
           <CardDescription>
             <ScrollArea className="h-24 rounded">
               {event.attributes?.description}
@@ -35,6 +37,15 @@ export const EventCard = ({event}: EventCardProps) => {
 		          <div className={"col-span-1 flex justify-end"}>Kategorie</div>
 		          <div className={"col-span-2"}>{categories?.map(c => c.attributes?.Name).join(", ")}</div>
 	          </div>
+          }
+
+          {locationCity &&
+		        <div className={"grid grid-cols-3 gap-2"}>
+			        <div className={"col-span-1 flex justify-end"}>Ort</div>
+			        <div
+				        className={"col-span-2"}>{locationCity}
+			        </div>
+		        </div>
           }
 
           {filteredLinks.length > 0 &&
