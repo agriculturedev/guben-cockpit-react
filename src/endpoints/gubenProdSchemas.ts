@@ -217,6 +217,7 @@ export type Category = {
             };
           }[];
         };
+        locationCity?: string;
         /**
          * @format date-time
          */
@@ -476,6 +477,7 @@ export type EventRequest = {
     endDate?: string;
     urls?: void;
     categories?: (number | string)[];
+    locationCity?: string;
   };
 };
 
@@ -572,6 +574,7 @@ export type Event = {
                   attributes?: {};
                 }[];
               };
+              locationCity?: string;
               /**
                * @format date-time
                */
@@ -725,6 +728,7 @@ export type Event = {
       };
     }[];
   };
+  locationCity?: string;
   /**
    * @format date-time
    */
