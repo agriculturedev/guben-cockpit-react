@@ -1677,7 +1677,6 @@ export type ProjectViewLocalizationRequest = {
   Title?: string;
   InfoFromAdmin?: GenericButtonComponent[];
   Description?: string;
-  projects?: (number | string)[];
   locale: string;
 };
 
@@ -1686,7 +1685,6 @@ export type ProjectViewRequest = {
     Title?: string;
     InfoFromAdmin?: GenericButtonComponent[];
     Description?: string;
-    projects?: (number | string)[];
     locale?: string;
   };
 };
@@ -1751,93 +1749,59 @@ export type ProjectView = {
   Title?: string;
   InfoFromAdmin?: GenericButtonComponent[];
   Description?: string;
-  projects?: {
+  /**
+   * @format date-time
+   */
+  createdAt?: string;
+  /**
+   * @format date-time
+   */
+  updatedAt?: string;
+  /**
+   * @format date-time
+   */
+  publishedAt?: string;
+  createdBy?: {
     data?: {
       id?: number;
       attributes?: {
-        title?: string;
-        description?: string;
-        fullText?: string;
-        imageCaption?: string;
-        imageUrl?: string;
-        imageCredits?: string;
-        projectId?: string;
+        firstname?: string;
+        lastname?: string;
+        username?: string;
         /**
-         * @format date-time
+         * @format email
          */
-        createdAt?: string;
-        /**
-         * @format date-time
-         */
-        updatedAt?: string;
-        /**
-         * @format date-time
-         */
-        publishedAt?: string;
-        createdBy?: {
+        email?: string;
+        resetPasswordToken?: string;
+        registrationToken?: string;
+        isActive?: boolean;
+        roles?: {
           data?: {
             id?: number;
             attributes?: {
-              firstname?: string;
-              lastname?: string;
-              username?: string;
-              /**
-               * @format email
-               */
-              email?: string;
-              resetPasswordToken?: string;
-              registrationToken?: string;
-              isActive?: boolean;
-              roles?: {
+              name?: string;
+              code?: string;
+              description?: string;
+              users?: {
+                data?: {
+                  id?: number;
+                  attributes?: {};
+                }[];
+              };
+              permissions?: {
                 data?: {
                   id?: number;
                   attributes?: {
-                    name?: string;
-                    code?: string;
-                    description?: string;
-                    users?: {
+                    action?: string;
+                    actionParameters?: void;
+                    subject?: string;
+                    properties?: void;
+                    conditions?: void;
+                    role?: {
                       data?: {
                         id?: number;
                         attributes?: {};
-                      }[];
-                    };
-                    permissions?: {
-                      data?: {
-                        id?: number;
-                        attributes?: {
-                          action?: string;
-                          actionParameters?: void;
-                          subject?: string;
-                          properties?: void;
-                          conditions?: void;
-                          role?: {
-                            data?: {
-                              id?: number;
-                              attributes?: {};
-                            };
-                          };
-                          /**
-                           * @format date-time
-                           */
-                          createdAt?: string;
-                          /**
-                           * @format date-time
-                           */
-                          updatedAt?: string;
-                          createdBy?: {
-                            data?: {
-                              id?: number;
-                              attributes?: {};
-                            };
-                          };
-                          updatedBy?: {
-                            data?: {
-                              id?: number;
-                              attributes?: {};
-                            };
-                          };
-                        };
-                      }[];
+                      };
                     };
                     /**
                      * @format date-time
@@ -1862,8 +1826,6 @@ export type ProjectView = {
                   };
                 }[];
               };
-              blocked?: boolean;
-              preferedLanguage?: string;
               /**
                * @format date-time
                */
@@ -1885,6 +1847,22 @@ export type ProjectView = {
                 };
               };
             };
+          }[];
+        };
+        blocked?: boolean;
+        preferedLanguage?: string;
+        /**
+         * @format date-time
+         */
+        createdAt?: string;
+        /**
+         * @format date-time
+         */
+        updatedAt?: string;
+        createdBy?: {
+          data?: {
+            id?: number;
+            attributes?: {};
           };
         };
         updatedBy?: {
@@ -1894,24 +1872,6 @@ export type ProjectView = {
           };
         };
       };
-    }[];
-  };
-  /**
-   * @format date-time
-   */
-  createdAt?: string;
-  /**
-   * @format date-time
-   */
-  updatedAt?: string;
-  /**
-   * @format date-time
-   */
-  publishedAt?: string;
-  createdBy?: {
-    data?: {
-      id?: number;
-      attributes?: {};
     };
   };
   updatedBy?: {
